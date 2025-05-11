@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cupom da Mamãe</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap');
+
+    html {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      scroll-snap-type: y mandatory;
+      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: #fff0f5;
+      text-align: center;
+      color: #6b0d33;
+    }
+
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .section {
+      min-height: 100vh;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      background-size: cover;
+      background-position: center;
+      color: white;
+      box-sizing: border-box;
+    }
+
+    .no-snap {
+      scroll-snap-align: none !important;
+    }
+
+    .present-section {
+      scroll-snap-align: start;
+      position: relative;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      background-color: #fff0f5;
+      overflow: hidden;
+    }
+
+    .gift-container {
+      position: relative;
+      width: 340px;
+      height: 340px;
+    }
+
+    .gift-lid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/tampa-presente.PNG') no-repeat center;
+      background-size: contain;
+      z-index: 2;
+      transition: transform 1s ease, opacity 1s ease;
+      cursor: pointer;
+    }
+
+    .gift-box-open .gift-lid {
+      transform: translateX(120%) rotate(25deg);
+      opacity: 0;
+    }
+
+    .gift-base {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('images/fundo-caixa.PNG') no-repeat center;
+      background-size: contain;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .cupom-preview {
+      cursor: pointer;
+      max-width: 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .cupom-preview:hover {
+      transform: scale(1.05);
+    }
+
+    .cupons-expandido {
+         position: relative; /* antes era absolute */
+         top: 0;             /* remove deslocamento negativo */
+         left: 0;
+         transform: none;
+         width: 90vw;
+         max-width: 360px;
+         background: white;
+         box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+         display: none;
+         flex-direction: column;
+         z-index: 10;
+         overflow-y: auto;          /* importante: ativa scroll interno */
+    }
+
+    .section-10 h2{
+        color: #ad1457;
+    }
+
+    .cupons-expandido img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .cupom-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+
+    .cupom-wrapper img {
+      width: 70%;
+      border-radius: 12px;
+    }
+
+    .btn-download {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background-color: rgba(236, 64, 122, 0.9); /* rosa com transparência */
+      color: white;
+      font-size: 20px;
+      padding: 8px;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      z-index: 5;
+      box-sizing: border-box;
+    }
+
+    .btn-download:hover {
+      background-color: #ad1457;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <section class="section" style="background-image: url('/images/foto1.JPG'); background-position: center">
+      <div class="section-content">
+        <h2>Feliz Dia das Mães!</h2>
+        <p>Mãe, hoje é um dia especial. Todos os dias deveriam ser seus, mas hoje é chamado de Dia das Mães.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto2.jpeg')">
+      <div class="section-content">
+        <p>Sei que faz um tempo que não escrevo algo assim, mas quero que saiba que, para mim, estar ao seu lado é mais valioso do que qualquer palavra.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto3.jpeg')">
+      <div class="section-content">
+        <p>Você é minha mãe, e eu te amo profundamente. Mesmo com as broncas e cobranças, eu sei: tudo o que você sempre quis foi me ver bem.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto4.JPG')">
+      <div class="section-content">
+        <p>Eu cresci, amadureci, tenho valores, ética, educação e a minha própria visão do mundo. E tudo isso é graças a você.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto5.JPG')">
+      <div class="section-content">
+        <p>Você me criou com força e amor. Me criou para enfrentar a vida. E, mesmo quando sinto medo ou insegurança, lembro do que você me ensinou: a encarar a realidade com coragem.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto6.JPG')">
+      <div class="section-content">
+        <p>Me dói ver você sempre se dedicando tanto e, às vezes, sofrendo por mim. Mas quero que saiba que, mesmo nos meus silêncios, eu sou grato. Muito grato.</p>
+      </div>
+    </section>
+
+    <section class="section section-7" style="background-image: url('/images/foto7.jpeg'); background-position: top;">
+      <div class="section-content">
+         <p>O futuro me assusta, sim, mas eu sigo em frente por tudo que você me ensinou.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto8.JPG')">
+      <div class="section-content">
+         <p>Obrigado por cada gesto, por cada carinho. Sempre serei grato por todo conforto e educação que vocês me deram e por nunca desistirem de mim.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background-image: url('/images/foto9.JPG')">
+      <div class="section-content">
+        <p>Hoje preparei algo simples, mas feito com todo o amor do mundo. São pequenos presentes, simbólicos, para tentar devolver um pouco de tudo que você já me deu.</p>
+        <p>Espero que você aproveite esse dia ao meu lado. Te amo.</p>
+        <div class="gift-box" onclick="mostrarCupons()"></div>
+      </div>
+    </section>
+
+    <section class="section section-10" style="background-color: #fff0f5;">
+      <h2>Feliz Dia das Mães! Toque no presente para abri-lo</h2>
+      <div class="present-section">
+        <div class="gift-container" id="caixaPresente">
+          <div class="gift-lid" onclick="abrirCaixa()"></div>
+          <div class="gift-base">
+            <img class="cupom-preview" src="images/cupom1.png" alt="Ver cupons" onclick="expandirCupons()" />
+          </div>
+          <div class="cupons-expandido" id="cuponsExpandido">
+              <div class="cupom-wrapper">
+                <img src="images/cupom1.png" alt="Cupom 1" />
+                <a class="btn-download" href="images/cupom1.png" download="cupom1.png" title="Baixar cupom 1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                      <path d="M12 3v12m0 0l-5-5m5 5l5-5M5 19h14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+              </div>
+              <div class="cupom-wrapper">
+                <img src="images/cupom2.png" alt="Cupom 2" />
+                <a class="btn-download" href="images/cupom2.png" download="cupom2.png" title="Baixar cupom 2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+                      <path d="M12 3v12m0 0l-5-5m5 5l5-5M5 19h14" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section class="section" style="background-image: url('foto10.JPG')">
+      <p>Espero que você aproveite esse dia ao meu lado. Te amo.</p>
+      <div class="gift-box" onclick="mostrarCupons()"></div>
+    </section> -->
+
+  </div>
+
+  <script>
+    function abrirCaixa() {
+      document.getElementById('caixaPresente').classList.add('gift-box-open');
+    }
+
+    function expandirCupons() {
+      document.getElementById('cuponsExpandido').style.display = 'flex';
+      document.body.style.scrollSnapType = 'none';
+    }
+  </script>
+</body>
+</html>
